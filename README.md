@@ -1,5 +1,9 @@
 # angular-bootcamp - clase 2
 
+1. Repaso typescript
+2. Angular Components
+3. Directiva: *ngFor
+
 ### Repaso typescript
 
 https://playcode.io/typescript
