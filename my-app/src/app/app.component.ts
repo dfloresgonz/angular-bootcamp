@@ -1,12 +1,14 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
+  selector: 'diego',
+  imports: [NgFor],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'Instagram';
+  nombre: string = "Diego";
+  imagen = `https://robohash.org/${this.nombre}`;
+  colores: string[] = ['rojo', 'verde', 'azul', 'amarillo'];
 }
