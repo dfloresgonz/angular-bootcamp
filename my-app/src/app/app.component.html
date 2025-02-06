@@ -1,16 +1,29 @@
-<img src="{{imagen}}" alt="imagen" width="100">
-<p>Mi app: {{ title }}</p>
-<div>
-  {{ nombre }}
-</div>
+
 
 <table border="1">
   <tr>
     <th>Index</th>
     <th>Color</th>
   </tr>
-  <tr *ngFor="let color of colores; let index = index">
+  <tr *ngFor="let color of colorez; let index = index">
     <td>{{ index }}</td>
     <td>{{ color }}</td>
   </tr>
 </table>
+
+<div *ngIf="hayNotificacion" [ngStyle]="{'background-color': colorBackground}">
+  Tienes una notificacion
+  <img src="{{imagen}}" alt="imagen" width="100" *ngFor="let color of colorez">
+  <p>Mi app: {{ title }}</p>
+  <div>
+    {{ nombre }}
+  </div>
+</div>
+
+<div class="divClase">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iure, illum non ullam quo, sequi sunt cumque itaque dolorem voluptate praesentium blanditiis tenetur autem, distinctio hic. Delectus incidunt harum placeat.
+</div>
+
+<div class="divClase">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iure, illum non ullam quo, sequi sunt cumque itaque dolorem voluptate praesentium blanditiis tenetur autem, distinctio hic. Delectus incidunt harum placeat.
+</div>
