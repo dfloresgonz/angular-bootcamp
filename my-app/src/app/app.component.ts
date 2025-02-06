@@ -14,5 +14,5 @@ export class AppComponent {
   colorez: string[] = ['rojo', 'verde', 'azul', 'amarillo'];
   hayNotificacion: boolean = true;
   colorBackground: string = 'purple';
-  userRole: string = 'hacker'
+  userRole: string = 'admin'
 }
