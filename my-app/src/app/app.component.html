@@ -27,3 +27,19 @@
 <div class="divClase">
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iure, illum non ullam quo, sequi sunt cumque itaque dolorem voluptate praesentium blanditiis tenetur autem, distinctio hic. Delectus incidunt harum placeat.
 </div>
+<br>
+<hr>
+<div [ngSwitch]="userRole">
+  <div *ngSwitchCase="'admin'">
+    Panel de administrador
+  </div>
+  <div *ngSwitchCase="'editor'">
+    Panel de editor
+  </div>
+  <div *ngSwitchCase="'user'">
+    Panel de usuario
+  </div>
+  <div *ngSwitchDefault>
+    Acceso denegado
+  </div>
+</div>

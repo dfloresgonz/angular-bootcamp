@@ -1,9 +1,9 @@
-import {  NgFor, NgIf, NgStyle } from '@angular/common';
+import {  NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [NgFor,NgIf,NgStyle],
+  imports: [NgFor,NgIf,NgStyle,NgSwitch,NgSwitchCase,NgSwitchDefault],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -14,4 +14,5 @@ export class AppComponent {
   colorez: string[] = ['rojo', 'verde', 'azul', 'amarillo'];
   hayNotificacion: boolean = true;
   colorBackground: string = 'purple';
+  userRole: string = 'hacker'
 }
