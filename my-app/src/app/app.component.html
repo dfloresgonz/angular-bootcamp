@@ -1,6 +1,15 @@
 
+<p>Mi app: {{ title | ofucar }}</p>
+<div>
+  {{ nombre | lowercase | alrevezPipe }}
+</div>
 
-<table border="1">
+<div>
+  {{ nombre | ofucar }}
+</div>
+<p>fecha: {{today | date:'fullDate' | uppercase }}</p>
+<p>{{sueldo | currency: 'S/.'}}</p>
+<!-- <table border="1">
   <tr>
     <th>Index</th>
     <th>Color</th>
@@ -14,10 +23,7 @@
 <div *ngIf="hayNotificacion" [ngStyle]="{'background-color': colorBackground}">
   Tienes una notificacion
   <img src="{{imagen}}" alt="imagen" width="100" *ngFor="let color of colorez">
-  <p>Mi app: {{ title }}</p>
-  <div>
-    {{ nombre }}
-  </div>
+  
 </div>
 
 <div class="divClase">
@@ -44,4 +50,4 @@ Rol: {{userRole}}
   <div *ngSwitchDefault>
     Acceso denegado
   </div>
-</div>
+</div> -->
