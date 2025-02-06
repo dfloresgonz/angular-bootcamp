@@ -9,6 +9,16 @@
 </div>
 <p>fecha: {{today | date:'fullDate' | uppercase }}</p>
 <p>{{sueldo | currency: 'S/.'}}</p>
+<p>{{porcentaje | percent: '2.3-6'}}</p>
+
+
+<div class="card" *ngFor="let producto of productos; let index = index">
+  <img src="https://http2.mlstatic.com/D_NQ_NP_826747-MLU77986349091_072024-O.webp" style="width:50px">
+  <div class="container">
+    <h4><b>{{producto.name}}</b></h4>
+    <p>Architect & Engineer</p>
+  </div>
+</div>
 <!-- <table border="1">
   <tr>
     <th>Index</th>
