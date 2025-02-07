@@ -13,7 +13,10 @@
 
 <div class="product-container">
   <div class="product-card" *ngFor="let producto of productos; let index = index">
-    <img src="https://http2.mlstatic.com/D_NQ_NP_826747-MLU77986349091_072024-O.webp" class="product-image">
+    <div class="product-image-container">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_826747-MLU77986349091_072024-O.webp" alt="{{producto.name}}" class="product-image">
+      <span *ngIf="producto.isOferta" class="sale-badge">En oferta</span>
+    </div>
     <div class="product-details">
       <h4 class="product-title">{{producto.name}}</h4>
       <p class="product-price">{{producto.price | currency: 'S/.'}}</p>

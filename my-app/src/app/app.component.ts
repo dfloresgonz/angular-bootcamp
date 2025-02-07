@@ -1,4 +1,4 @@
-import {  CurrencyPipe, DatePipe, LowerCasePipe, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, PercentPipe, UpperCasePipe } from '@angular/common';
+import {  CurrencyPipe, NgFor, NgIf } from '@angular/common';
 import { Component, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -33,9 +33,7 @@ type Product = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgFor,
-    UpperCasePipe,LowerCasePipe,DatePipe,CurrencyPipe,
-    MiPipe,OfuscarPipe,PercentPipe],
+  imports: [NgFor, NgIf, CurrencyPipe],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
