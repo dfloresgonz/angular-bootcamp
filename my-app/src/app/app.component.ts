@@ -67,6 +67,14 @@ export class AppComponent {
       description: 'audifonos...',
       isOferta: true,
       porcentajeOferta: 0.25,
+    },
+    {
+      name: 'Audifonos',
+      price: 100,
+      imgUrl: `https://http2.mlstatic.com/D_NQ_NP_826747-MLU77986349091_072024-O.webp`,
+      description: 'audifonos...',
+      isOferta: true,
+      porcentajeOferta: 0.25,
     }
   ]
 }

@@ -1,4 +1,4 @@
-
+<!-- 
 <p>Mi app: {{ title | ofucar }}</p>
 <div>
   {{ nombre | lowercase | alrevezPipe }}
@@ -9,14 +9,16 @@
 </div>
 <p>fecha: {{today | date:'fullDate' | uppercase }}</p>
 <p>{{sueldo | currency: 'S/.'}}</p>
-<p>{{porcentaje | percent: '2.3-6'}}</p>
+<p>{{porcentaje | percent: '2.3-6'}}</p> -->
 
-
-<div class="card" *ngFor="let producto of productos; let index = index">
-  <img src="https://http2.mlstatic.com/D_NQ_NP_826747-MLU77986349091_072024-O.webp" style="width:50px">
-  <div class="container">
-    <h4><b>{{producto.name}}</b></h4>
-    <p>Architect & Engineer</p>
+<div class="product-container">
+  <div class="product-card" *ngFor="let producto of productos; let index = index">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_826747-MLU77986349091_072024-O.webp" class="product-image">
+    <div class="product-details">
+      <h4 class="product-title">{{producto.name}}</h4>
+      <p class="product-price">{{producto.price | currency: 'S/.'}}</p>
+      <p class="product-description">{{producto.description}}</p>
+    </div>
   </div>
 </div>
 <!-- <table border="1">
