@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { Component, Pipe, PipeTransform } from '@angular/core';
+import { CurrencyPipe, NgClass, NgFor, NgIf, PercentPipe } from '@angular/common';
 
 type Product = {
   name: string;
@@ -10,9 +10,19 @@ type Product = {
   porcentajeOferta: number;
 }
 
+@Pipe({
+  name: 'shorttext',
+  standalone: true,
+})
+export class ShortTextPipe implements PipeTransform {
+  transform(value: string) {
+    return `${value.substring(0,50)}...`
+  }
+}
+
 @Component({
   selector: 'producto-card',
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, CurrencyPipe,NgClass,PercentPipe,ShortTextPipe],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })

@@ -56,15 +56,42 @@
     color: green;
     font-size: 1.1em;
     margin: 5px 0;
+
+  }
+
+  .product-price-oferta {
+    color: red;
+    font-size: 1.1em;
+    margin: 5px 0;
+  }
+
+  .tachado {
+    text-decoration: line-through;
+  }
+
+  .oferta-precio {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    width: auto;
+    display: inline-block;
   }
   
   .product-description {
     font-size: 0.9em;
     color: #555;
   }
+
+  .price-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
   
   @media (max-width: 600px) {
     .product-card {
-      flex: 1 1 100%; /* Full width on small screens */
+      flex: 1 1 100%;
     }
   }

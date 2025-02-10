@@ -6,8 +6,12 @@
         </div>
         <div class="product-details">
         <h4 class="product-title">{{producto.name}}</h4>
-        <p class="product-price">{{producto.price}}</p>
-        <p class="product-description">{{producto.description}}</p>
+        <div class="price-container">
+          <p [ngClass]="{'product-price-oferta': producto.isOferta, 'product-price': !producto.isOferta}">{{producto.price | currency: 'S/.'}}</p>
+          <p *ngIf="producto.isOferta" class="oferta-precio">{{ producto.porcentajeOferta | percent }}</p>
+        </div>
+        <p *ngIf="producto.isOferta" [ngClass]="{'tachado': producto.isOferta, 'product-price': producto.isOferta}">{{producto.price | currency: 'S/.'}}</p>
+        <p class="product-description">{{producto.description | shorttext}}</p>
         </div>
     </div>
 </div>
