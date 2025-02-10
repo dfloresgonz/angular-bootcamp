@@ -10,7 +10,7 @@
           <p [ngClass]="{'product-price-oferta': producto.isOferta, 'product-price': !producto.isOferta}">{{producto.price | currency: 'S/.'}}</p>
           <p *ngIf="producto.isOferta" class="oferta-precio">{{ producto.porcentajeOferta | percent }}</p>
         </div>
-        <p *ngIf="producto.isOferta" [ngClass]="{'tachado': producto.isOferta, 'product-price': producto.isOferta}">{{producto.price | currency: 'S/.'}}</p>
+        <p *ngIf="producto.isOferta" [ngClass]="{'tachado product-price': producto.isOferta}">{{producto.price | currency: 'S/.'}}</p>
         <p class="product-description">{{producto.description | shorttext}}</p>
         </div>
     </div>
