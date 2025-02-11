@@ -1,57 +1,6 @@
-<!-- 
-<p>Mi app: {{ title | ofucar }}</p>
-<div>
-  {{ nombre | lowercase | alrevezPipe }}
-</div>
-
-<div>
-  {{ nombre | ofucar }}
-</div>
-<p>fecha: {{today | date:'fullDate' | uppercase }}</p>
-<p>{{sueldo | currency: 'S/.'}}</p>
-<p>{{porcentaje | percent: '2.3-6'}}</p> -->
-
-<producto-card></producto-card>
-
-<!-- <table border="1">
-  <tr>
-    <th>Index</th>
-    <th>Color</th>
-  </tr>
-  <tr *ngFor="let color of colorez; let index = index">
-    <td>{{ index }}</td>
-    <td>{{ color }}</td>
-  </tr>
-</table>
-
-<div *ngIf="hayNotificacion" [ngStyle]="{'background-color': colorBackground}">
-  Tienes una notificacion
-  <img src="{{imagen}}" alt="imagen" width="100" *ngFor="let color of colorez">
-  
-</div>
-
-<div class="divClase">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iure, illum non ullam quo, sequi sunt cumque itaque dolorem voluptate praesentium blanditiis tenetur autem, distinctio hic. Delectus incidunt harum placeat.
-</div>
-
-<div class="divClase">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iure, illum non ullam quo, sequi sunt cumque itaque dolorem voluptate praesentium blanditiis tenetur autem, distinctio hic. Delectus incidunt harum placeat.
-</div>
-<br>
-<hr>
-Rol: {{userRole}}
-<hr>
-<div [ngSwitch]="userRole">
-  <div *ngSwitchCase="'admin'">
-    Panel de administrador
-  </div>
-  <div *ngSwitchCase="'editor'">
-    Panel de editor
-  </div>
-  <div *ngSwitchCase="'user'">
-    Panel de usuario
-  </div>
-  <div *ngSwitchDefault>
-    Acceso denegado
-  </div>
-</div> -->
+<nav>
+  <a routerLink="/">Home</a> |
+  <a routerLink="/about">About</a> |
+  <a routerLink="/productos">Productos</a>
+</nav>
+<router-outlet></router-outlet>
