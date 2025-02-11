@@ -13,5 +13,6 @@
         <p *ngIf="producto.isOferta" [ngClass]="{'tachado product-price': producto.isOferta}">{{producto.price | currency: 'S/.'}}</p>
         <p class="product-description">{{producto.description | shorttext}}</p>
         </div>
+        <a [routerLink]="[producto.id]" class="view-product-button">Ver</a>
     </div>
 </div>

@@ -1,4 +1,20 @@
+.view-product-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+.view-product-button:hover {
+  background-color: #0056b3;
+}
 
 .product-container {
     display: flex;
