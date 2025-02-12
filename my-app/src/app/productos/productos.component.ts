@@ -17,6 +17,7 @@ export type Product = {
   description: string;
   isOferta: boolean;
   porcentajeOferta: number;
+  finalPrice: number;
 };
 
 @Pipe({

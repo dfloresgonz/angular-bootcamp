@@ -15,6 +15,7 @@ export class ProductoService {
         'Tarjeta gráfica: Intel UHD Graphics, Con pantalla táctil: No',
       isOferta: false,
       porcentajeOferta: 0.5,
+      finalPrice: 0,
     },
     {
       id: 894,
@@ -24,6 +25,7 @@ export class ProductoService {
       description: 'Carga rápida,Cuenta con bluetooth,Resistente al agua.',
       isOferta: true,
       porcentajeOferta: 0.12,
+      finalPrice: 0,
     },
     {
       id: 7489,
@@ -34,10 +36,21 @@ export class ProductoService {
         'Con tu Consola PlayStation 5 Slim tendrás entretenimiento asegurado todos los días. Su tecnología fue creada para poner nuevos retos tanto a jugadores principiantes como expertos.',
       isOferta: true,
       porcentajeOferta: 0.25,
+      finalPrice: 0,
     },
   ];
 
-  constructor() {}
+  constructor() {
+    this.productos = this.productos.map((p: Product) => {
+      if (p.isOferta) {
+        const descuento = p.price * p.porcentajeOferta;
+        p.finalPrice = p.price - descuento;
+        return p;
+      }
+      p.finalPrice = p.price;
+      return p;
+    });
+  }
 
   getProductos() {
     return this.productos;
