@@ -41,6 +41,10 @@ export class ProductoService {
   ];
 
   constructor() {
+    this.calculateFinalPrice();
+  }
+
+  calculateFinalPrice() {
     this.productos = this.productos.map((p: Product) => {
       if (p.isOferta) {
         const descuento = p.price * p.porcentajeOferta;
@@ -53,6 +57,7 @@ export class ProductoService {
   }
 
   getProductos() {
+    this.calculateFinalPrice();
     return this.productos;
   }
 
