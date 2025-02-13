@@ -381,10 +381,12 @@ addProduct(product: Product) {
 
 ### API
 
+1. Crear el service
 ```bash
 ng g s services/api-products --skip-tests
 ```
 
+2. En el service recién creado:
 ```typescript
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
