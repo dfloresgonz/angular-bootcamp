@@ -62,7 +62,7 @@ imports: [
     MatTabsModule,
 ],
 
-selectedTab = 0;
+selectedTab: number = 0;
 
 constructor(private router: Router) {}
 
@@ -77,7 +77,7 @@ ngOnInit() {
 navigateToTab(event: any) {
   switch (event.index) {
     case 0:
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
       break;
     case 1:
       this.router.navigate(['/about']);
@@ -89,7 +89,7 @@ navigateToTab(event: any) {
 }
 
 private updateSelectedTab(url: string) {
-  if (url.includes('/home')) {
+  if (url.includes('/')) {
     this.selectedTab = 0;
   } else if (url.includes('/about')) {
     this.selectedTab = 1;
@@ -109,6 +109,7 @@ private updateSelectedTab(url: string) {
 
 4. En el product-detail.component.html
 
+Ponerlo en el inicio (linea 1)
 ```html
 <button mat-flat-button (click)="goBack()">Back to Products</button>
 ```
@@ -116,8 +117,16 @@ private updateSelectedTab(url: string) {
 5. En el product-detail.component.ts
 
 ```typescript
+import { MatButton } from '@angular/material/button';
+
 // providers: [ProductoService],
 imports: [MatButton],
+
+constructor(
+  private readonly route: ActivatedRoute,
+  private readonly router: Router,
+  private readonly productoService: ProductoService
+) {}
 
 goBack(): void {
   this.router.navigate(['/productos']);
