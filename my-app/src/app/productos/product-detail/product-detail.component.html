@@ -1,9 +1,14 @@
-<button mat-flat-button (click)="goBack()">Back to Products</button>
-<div>
-  <h3>Detalle del producto</h3>
-  <p>Producto con id: {{productId}}</p>
-  <p>Nombre: {{product!.name}}</p>
-  <p>Precio: {{product!.price}}</p>
-  <p>Descripción: {{product!.description}}</p>
-  <img src="{{product!.imgUrl}}" alt="{{product!.name}}" />
-</div>
+<h2 mat-dialog-title>Detallede producto</h2>
+<mat-dialog-content>
+    <div>
+      <h3>Detalle del producto</h3>
+      <p>Producto con id: {{data.id}}</p>
+      <p>Nombre: {{data!.name}}</p>
+      <p>Precio: {{data!.price}}</p>
+      <p>Descripción: {{data!.description}}</p>
+      <img src="{{data!.imgUrl}}" alt="{{data!.name}}" />
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cerrar</button>
+</mat-dialog-actions>

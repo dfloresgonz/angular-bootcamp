@@ -67,6 +67,7 @@ export class ProductoService {
 
   addProduct(product: Product) {
     this.productos.push(product);
+    this.calculateFinalPrice();
     console.log('Products in service:', this.productos);
   }
 }

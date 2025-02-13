@@ -16,6 +16,7 @@ import {
   ProductApi,
 } from '../services/api-products.service';
 import { ApiStudentsService, Student } from '../services/api-students.service';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 export type Product = {
   id: number;
@@ -67,7 +68,6 @@ export class ProductosComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    console.log('...ngOnInit');
     this.productos = this.productoService.getProductos();
     this.productosApi = await this.apiProductsService.getAllProducts();
     this.students = await this.apiStudentsService.getAllStudents();
@@ -82,6 +82,14 @@ export class ProductosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result:`, result);
+    });
+  }
+
+  verProducto(product: Product) {
+    const dialogRef = this.dialog.open(ProductDetailComponent, {
+      data: {
+        ...product,
+      },
     });
   }
 }
