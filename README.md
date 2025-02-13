@@ -1,6 +1,6 @@
 # Reto final
 
-1. Crear un component llamado login (html,css,ts)
+1. Crear un component llamado login (html,css,ts) tip: usar find
 2. En https://mockapi.io/ crear un endpoint de users
    /api/dmc/users
    - id
