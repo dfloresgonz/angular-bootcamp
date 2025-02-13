@@ -64,4 +64,9 @@ export class ProductoService {
   getProductoPorId(id: number) {
     return this.productos.find((producto) => producto.id === id);
   }
+
+  addProduct(product: Product) {
+    this.productos.push(product);
+    console.log('Products in service:', this.productos);
+  }
 }

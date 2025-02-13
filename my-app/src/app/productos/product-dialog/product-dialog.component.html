@@ -16,6 +16,9 @@
       <mat-form-field style="padding: 10px">
         <mat-label>Descripción</mat-label>
         <input matInput formControlName="description">
+        <mat-error *ngIf="productForm.get('description')?.hasError('minlength')">
+          La descripción debe tener como mínimo 4 caracteres
+        </mat-error>
       </mat-form-field>
       <mat-form-field style="padding: 10px">
         <mat-label>Imagen Url</mat-label>

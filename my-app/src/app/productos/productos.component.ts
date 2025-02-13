@@ -60,11 +60,17 @@ export class ProductosComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(ProductDialogComponent, {
+    const dialogRef = this.dialog.open(ProductDialogComponent, {
       data: {
-        animal: 'panda',
-        name: 'diego',
+        animal: 'unicorn',
       },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.productos = this.productoService.getProductos();
+        console.log('Products after dialog:', this.productos);
+      }
     });
   }
 }

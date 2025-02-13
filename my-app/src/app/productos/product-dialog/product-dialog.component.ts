@@ -46,7 +46,7 @@ export class ProductDialogComponent {
     this.productForm = this.fb.group({
       name: ['', Validators.required],
       price: ['', Validators.required],
-      description: [''],
+      description: ['', Validators.minLength(4)],
       imgUrl: [''],
       isOferta: [false],
       porcentajeOferta: [0],
@@ -54,14 +54,14 @@ export class ProductDialogComponent {
   }
 
   onSubmit() {
-    // if (this.productForm.valid) {
-    //   const newProduct = {
-    //     id: Date.now(),
-    //     ...this.productForm.value,
-    //   };
-    //   this.productoService.addProduct(newProduct);
-    //   this.dialogRef.close(true);
-    // }
+    if (this.productForm.valid) {
+      const newProduct = {
+        id: Date.now(),
+        ...this.productForm.value,
+      };
+      this.productoService.addProduct(newProduct);
+      this.dialogRef.close(true);
+    }
   }
 
   onCancel() {
