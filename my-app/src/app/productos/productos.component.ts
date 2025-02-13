@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform, inject } from '@angular/core';
 import {
   CurrencyPipe,
   NgClass,
@@ -8,6 +8,9 @@ import {
 } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ProductoService } from '../services/producto.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductDialogComponent } from './product-dialog/product-dialog.component';
+import { MatButtonModule } from '@angular/material/button';
 
 export type Product = {
   id: number;
@@ -40,17 +43,27 @@ export class ShortTextPipe implements PipeTransform {
     PercentPipe,
     ShortTextPipe,
     RouterLink,
+    MatButtonModule,
   ],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
-  providers: [ProductoService],
+  // providers: [ProductoService],
 })
 export class ProductosComponent implements OnInit {
   productos?: Product[];
+  dialog = inject(MatDialog);
 
   constructor(private readonly productoService: ProductoService) {}
 
   ngOnInit() {
     this.productos = this.productoService.getProductos();
+  }
+
+  openDialog() {
+    this.dialog.open(ProductDialogComponent, {
+      data: {
+        animal: 'panda',
+      },
+    });
   }
 }

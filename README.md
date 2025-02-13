@@ -138,7 +138,7 @@ goBack(): void {
 1. Crear componente dialog
 
 ```bash
-ng g c productos/product-dialog --standalone
+ng g c productos/product-dialog --standalone --no-spec
 ```
 
 2. En products.component.html

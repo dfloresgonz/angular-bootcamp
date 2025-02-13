@@ -1,3 +1,6 @@
+<button mat-flat-button (click)="openDialog()">Nuevo</button>
+<div>Total products: {{productos?.length}}</div>
+
 <div class="product-container">
     <div class="product-card" *ngFor="let producto of productos; let index = index">
         <div class="product-image-container">
