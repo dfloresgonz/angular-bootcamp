@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
   }
 
   private updateSelectedTab(url: string) {
-    if (url.includes('/home')) {
+    if (url.includes('/')) {
       this.selectedTab = 0;
     } else if (url.includes('/about')) {
       this.selectedTab = 1;
