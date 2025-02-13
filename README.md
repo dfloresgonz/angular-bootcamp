@@ -382,7 +382,7 @@ addProduct(product: Product) {
 ### API
 
 ```bash
-ng g s api-products
+ng g s services/api-products --skip-tests
 ```
 
 ```typescript
@@ -443,4 +443,12 @@ En el productos.component.html
       <a [routerLink]="['/productos', producto.id]" class="view-product-button">Ver</a>
   </div>
 </div>
+```
+
+6. Agregar httpClient en el app.config.ts
+
+```typescript
+import { provideHttpClient, withFetch } from '@angular/common/http';
+
+providers: [..., provideHttpClient(withFetch()),]
 ```

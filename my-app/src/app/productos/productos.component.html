@@ -19,3 +19,19 @@
         <a [routerLink]="[producto.id]" class="view-product-button">Ver</a>
     </div>
 </div>
+<hr>
+<div class="product-container">
+  <div class="product-card" *ngFor="let producto of productosApi; let index = index;">
+      <div class="product-image-container">
+      <img src="{{producto.image}}" alt="{{producto.title}}" class="product-image">
+      </div>
+      <div class="product-details">
+      <h4 class="product-title">{{producto.title}}</h4>
+      <div class="price-container">
+        <p class="product-price">{{producto.price | currency: 'USD'}}</p>
+      </div>
+      <p class="product-description">{{producto.description | shorttext}}</p>
+      </div>
+      <a [routerLink]="['/productos', producto.id]" class="view-product-button">Ver</a>
+  </div>
+</div>

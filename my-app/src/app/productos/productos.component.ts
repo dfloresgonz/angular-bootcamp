@@ -11,6 +11,10 @@ import { ProductoService } from '../services/producto.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
+import {
+  ApiProductsService,
+  ProductApi,
+} from '../services/api-products.service';
 
 export type Product = {
   id: number;
@@ -52,11 +56,17 @@ export class ShortTextPipe implements PipeTransform {
 export class ProductosComponent implements OnInit {
   productos?: Product[];
   dialog = inject(MatDialog);
+  productosApi: ProductApi[] = [];
 
-  constructor(private readonly productoService: ProductoService) {}
+  constructor(
+    private readonly productoService: ProductoService,
+    private readonly apiProductsService: ApiProductsService
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    console.log('...ngOnInit');
     this.productos = this.productoService.getProductos();
+    this.productosApi = await this.apiProductsService.getAllProducts();
   }
 
   openDialog() {
@@ -67,10 +77,7 @@ export class ProductosComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.productos = this.productoService.getProductos();
-        console.log('Products after dialog:', this.productos);
-      }
+      console.log(`Dialog result:`, result);
     });
   }
 }

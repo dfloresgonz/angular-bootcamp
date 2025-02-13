@@ -60,7 +60,7 @@ export class ProductDialogComponent {
         ...this.productForm.value,
       };
       this.productoService.addProduct(newProduct);
-      this.dialogRef.close(true);
+      this.dialogRef.close(newProduct);
     }
   }
 
