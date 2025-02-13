@@ -254,6 +254,7 @@ imports: [
 2. Agregar el form
 
 ```html
+<h2 mat-dialog-title>Nuevo producto</h2>
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
 <mat-dialog-content>
     <mat-form-field style="padding: 10px">
@@ -295,9 +296,29 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogTitle,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogModule,
+} from '@angular/material/dialog';
 
 import { NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
+
+productForm: FormGroup;
+
+imports: [
+  MatDialogTitle,
+  MatDialogContent,
+  MatInputModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  NgIf,
+  MatButton,
+  ReactiveFormsModule,
+],
 
  constructor(
     private fb: FormBuilder,
