@@ -15,6 +15,7 @@ import {
   ApiProductsService,
   ProductApi,
 } from '../services/api-products.service';
+import { ApiStudentsService, Student } from '../services/api-students.service';
 
 export type Product = {
   id: number;
@@ -57,16 +58,19 @@ export class ProductosComponent implements OnInit {
   productos?: Product[];
   dialog = inject(MatDialog);
   productosApi: ProductApi[] = [];
+  students: Student[] = [];
 
   constructor(
     private readonly productoService: ProductoService,
-    private readonly apiProductsService: ApiProductsService
+    private readonly apiProductsService: ApiProductsService,
+    private readonly apiStudentsService: ApiStudentsService
   ) {}
 
   async ngOnInit() {
     console.log('...ngOnInit');
     this.productos = this.productoService.getProductos();
     this.productosApi = await this.apiProductsService.getAllProducts();
+    this.students = await this.apiStudentsService.getAllStudents();
   }
 
   openDialog() {

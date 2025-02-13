@@ -20,6 +20,21 @@
     </div>
 </div>
 <hr>
+<table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor="let student of students; let index = index;">
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.lastname}}</td>
+    <td>{{student.age}}</td>
+  </tr>
+</table>
+<hr>
 <div class="product-container">
   <div class="product-card" *ngFor="let producto of productosApi; let index = index;">
       <div class="product-image-container">
@@ -35,3 +50,4 @@
       <a [routerLink]="['/productos', producto.id]" class="view-product-button">Ver</a>
   </div>
 </div>
+
