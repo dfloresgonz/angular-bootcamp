@@ -16,6 +16,7 @@ import {
   ProductApi,
 } from '../services/api-products.service';
 import { ApiStudentsService, Student } from '../services/api-students.service';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 export type Product = {
   id: number;
@@ -52,7 +53,6 @@ export class ShortTextPipe implements PipeTransform {
   ],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
-  // providers: [ProductoService],
 })
 export class ProductosComponent implements OnInit {
   productos?: Product[];
@@ -82,6 +82,14 @@ export class ProductosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result:`, result);
+    });
+  }
+
+  verProducto(product: Product) {
+    const dialogRef = this.dialog.open(ProductDetailComponent, {
+      data: {
+        ...product,
+      },
     });
   }
 }
