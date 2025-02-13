@@ -63,6 +63,7 @@ export class ProductosComponent implements OnInit {
     this.dialog.open(ProductDialogComponent, {
       data: {
         animal: 'panda',
+        name: 'diego',
       },
     });
   }

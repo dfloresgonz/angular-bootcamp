@@ -238,6 +238,19 @@ data = inject(MAT_DIALOG_DATA);
 </mat-dialog-content>
 ```
 
+En el product-dialog.component.ts agregar los imports
+
+```typescript
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+imports: [
+    ...
+    MatInputModule,
+    MatFormFieldModule,
+  ],
+```
+
 2. Agregar el form
 
 ```html
@@ -276,8 +289,6 @@ data = inject(MAT_DIALOG_DATA);
 3. Agregar imports
 
 ```typescript
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   FormBuilder,
   FormGroup,
