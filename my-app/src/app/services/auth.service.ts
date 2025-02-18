@@ -15,6 +15,7 @@ export class AuthService {
 
   login(username: string, password: string): boolean {
     if (username === 'admin' && password === '123456') {
+      // es correcto
       const user: User = { username };
       this.isAuthenticated.next(true);
       this.currentUser.next(user);

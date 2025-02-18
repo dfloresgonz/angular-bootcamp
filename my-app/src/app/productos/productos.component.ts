@@ -68,7 +68,7 @@ export class ProductosComponent implements OnInit {
 
   async ngOnInit() {
     console.log('...ngOnInit');
-    this.productos = this.productoService.getProductos();
+    this.productos = await this.productoService.getProductos();
     this.productosApi = await this.apiProductsService.getAllProducts();
     this.students = await this.apiStudentsService.getAllStudents();
   }
