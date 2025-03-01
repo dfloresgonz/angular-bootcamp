@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../productos/productos.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
 @Injectable({
@@ -12,8 +12,14 @@ export class ProductoService {
 
   constructor(private readonly http: HttpClient) {}
 
-  async getProductos(): Promise<Product[]> {
-    return firstValueFrom(this.http.get<Product[]>(`${this.apiUrl}/products`));
+  async getProductos(access_token: string): Promise<Product[]> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${access_token}`,
+    });
+
+    return firstValueFrom(
+      this.http.get<Product[]>(`${this.apiUrl}/api/v1/products`, { headers })
+    );
   }
 
   getProductoPorId(id: number) {

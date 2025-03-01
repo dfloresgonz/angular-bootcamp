@@ -68,7 +68,10 @@ export class ProductosComponent implements OnInit {
 
   async ngOnInit() {
     console.log('...ngOnInit');
-    this.productos = await this.productoService.getProductos();
+    const access_token = localStorage.getItem('access_token');
+    console.log('access_token:', access_token);
+
+    this.productos = await this.productoService.getProductos(access_token!);
     this.productosApi = await this.apiProductsService.getAllProducts();
     this.students = await this.apiStudentsService.getAllStudents();
   }

@@ -17,8 +17,9 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  onLogin() {
-    if (this.authService.login(this.username, this.password)) {
+  async onLogin() {
+    const auth = await this.authService.login(this.username, this.password);
+    if (auth) {
       this.router.navigate(['/main']);
     } else {
       this.errorMessage = 'Usuario o contraseña incorrectos';

@@ -1,10 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 
 interface User {
   username: string;
   // Add more user properties if needed
 }
+
+type TokenResponse = {
+  access_token: string;
+};
 
 @Injectable({
   providedIn: 'root',
@@ -13,14 +18,30 @@ export class AuthService {
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   private currentUser = new BehaviorSubject<User | null>(null);
 
-  login(username: string, password: string): boolean {
-    if (username === 'admin' && password === '123456') {
+  private readonly apiUrl = 'http://localhost:3000';
+
+  constructor(private readonly http: HttpClient) {}
+
+  async loginService(
+    username: string,
+    password: string
+  ): Promise<TokenResponse> {
+    const body = { username, password };
+    return firstValueFrom(
+      this.http.post<TokenResponse>(`${this.apiUrl}/api/login`, body)
+    );
+  }
+
+  async login(username: string, password: string): Promise<boolean> {
+    const auth = await this.loginService(username, password);
+    if (auth.access_token) {
       // es correcto
       const user: User = { username };
       this.isAuthenticated.next(true);
       this.currentUser.next(user);
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('access_token', auth.access_token);
       return true;
     }
     return false;
@@ -31,6 +52,7 @@ export class AuthService {
     this.currentUser.next(null);
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('user');
+    localStorage.removeItem('access_token');
   }
 
   isLoggedIn() {
