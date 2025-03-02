@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Product } from '../productos/productos.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductoService {
   productos: Product[] = [];
-  private readonly apiUrl = 'http://localhost:3000';
+  private readonly apiUrl = environment.backendUrl;
 
   constructor(private readonly http: HttpClient) {}
 
