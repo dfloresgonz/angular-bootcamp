@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { environment } from '../../environment/environment';
 
 interface User {
   username: string;
@@ -18,7 +19,7 @@ export class AuthService {
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   private currentUser = new BehaviorSubject<User | null>(null);
 
-  private readonly apiUrl = 'http://localhost:3000';
+  private readonly apiUrl = environment.backendUrl;
 
   constructor(private readonly http: HttpClient) {}
 
