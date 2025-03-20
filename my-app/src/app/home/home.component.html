@@ -1,0 +1,23 @@
+<p>Home component</p>
+<ul>
+    <li>
+        hola
+    </li>
+    <li>
+        mundo
+    </li>
+</ul>
+
+<button mat-flat-button>Basic</button>
+<hr>
+<mat-radio-group aria-label="Select an option">
+  <mat-radio-button value="1">Option 1</mat-radio-button>
+  <mat-radio-button value="2">Option 2</mat-radio-button>
+</mat-radio-group>
+<hr>
+<mat-form-field>
+  <mat-label>Pick a time</mat-label>
+  <input matInput [matTimepicker]="picker">
+  <mat-timepicker-toggle matIconSuffix [for]="picker"/>
+  <mat-timepicker #picker/>
+</mat-form-field>

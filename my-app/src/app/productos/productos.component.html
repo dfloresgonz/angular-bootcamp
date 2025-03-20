@@ -1,0 +1,53 @@
+<button mat-flat-button (click)="openDialog()">Nuevo</button>
+<div>Total products: {{productos?.length}}</div>
+
+<div class="product-container">
+    <div class="product-card" *ngFor="let producto of productos; let index = index">
+        <div class="product-image-container">
+        <img src="{{producto.imgUrl}}" alt="{{producto.name}}" class="product-image">
+        <span *ngIf="producto.isOferta" class="sale-badge">En oferta</span>
+        </div>
+        <div class="product-details">
+        <h4 class="product-title">{{producto.name}}</h4>
+        <div class="price-container">
+          <p [ngClass]="{'product-price-oferta': producto.isOferta, 'product-price': !producto.isOferta}">{{producto.finalPrice | currency: 'S/.'}}</p>
+          <p *ngIf="producto.isOferta" class="oferta-precio">{{ producto.porcentajeOferta | percent }}</p>
+        </div>
+        <p *ngIf="producto.isOferta" class="tachado product-price">{{producto.price | currency: 'S/.'}}</p>
+        <p class="product-description">{{producto.description | shorttext}}</p>
+        </div>
+        <button class="view-product-button" (click)="verProducto(producto)">Ver</button>
+    </div>
+</div>
+<hr>
+<table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor="let student of students; let index = index;">
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.lastname}}</td>
+    <td>{{student.age}}</td>
+  </tr>
+</table>
+<hr>
+<div class="product-container">
+  <div class="product-card" *ngFor="let producto of productosApi; let index = index;">
+      <div class="product-image-container">
+      <img src="{{producto.image}}" alt="{{producto.title}}" class="product-image">
+      </div>
+      <div class="product-details">
+      <h4 class="product-title">{{producto.title}}</h4>
+      <div class="price-container">
+        <p class="product-price">{{producto.price | currency: 'USD'}}</p>
+      </div>
+      <p class="product-description">{{producto.description | shorttext}}</p>
+      </div>
+      <a [routerLink]="['/productos', producto.id]" class="view-product-button">Ver</a>
+  </div>
+</div>
+
